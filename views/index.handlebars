@@ -1,35 +1,51 @@
 <div class="container">
-
-  <h1 id="title">Burger Time</h1>
-
-  <h2>Burgers Available!</h2>
-  {{#each menu}}
-  {{#unless eaten}}
-  <li>{{this.name}}</li>
-  <button class="change-eaten" data-id="{{id}}" data-newsleep="{{eaten}}">
-    Eat Me!
-  </button>
-  {{/unless}}
-  {{/each}}
-  <hr>
-
-  <h2>Burgers Eaten!</h2>
-  {{#each menu}}
-  {{#if eaten}}
-  <li>{{this.name}}</li>
-  {{/if}}
-  {{/each}}
-
-  <hr>
-  <h2>Add a Burger</h2>
-  <form class="create-form">
-
-    <div class="form-group">
-      <label for="ca">Burger Name:</label>
-      <input type="text" id="ca" name="name">
-    </div>
-
-    <button type="submit">Add Burger</button>
-  </form>
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Burger Time!</h1>
+    <hr class="my-4">
+  </div>
 </div>
 
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-sm text-center">
+      <h2>Burgers Available!</h2>
+      <hr>
+      {{#each menu}}
+      {{#unless eaten}}
+      <li>{{this.name}}</li>
+      <button class="change-eaten" data-id="{{id}}" data-newsleep="{{eaten}}">
+        Eat Me!
+      </button>
+      <hr>
+      {{/unless}}
+      {{/each}}
+    </div>
+
+    <div class="col-sm text-center">
+      <h2>Add a Burger</h2>
+      <hr>
+      <form class="create-form">
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
+        <button type="submit">Add Burger</button>
+      </form>
+      <img src="../assets/img/pizza_1.png">
+    </div>
+
+    <div class="col-sm text-center">
+      <h2>Burgers Eaten!</h2>
+      <hr>
+      {{#each menu}}
+      {{#if eaten}}
+      <li>{{this.name}}</li>
+      <hr>
+      {{/if}}
+      {{/each}}
+    </div>
+
+  </div>
+</div>

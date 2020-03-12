@@ -14,7 +14,6 @@
 	{{{ body }}}
 </body>
 <script>
-	var newState = false;
 
 	// Make sure we wait to attach our handlers until the DOM is fully loaded.
 	$(function () {
@@ -24,12 +23,11 @@
 			var newEatenState = { eaten: true };
 
 			// Send the PUT request.
-			$.ajax("/api/cats/" + id, {
+			$.ajax("/api/burgers/" + id, {
 				type: "PUT",
 				data: newEatenState
 			}).then(
 				function () {
-					console.log("changed sleep to", newState);
 					// Reload the page to get the updated list
 					location.reload();
 				}
@@ -46,7 +44,7 @@
 			};
 
 			// Send the POST request.
-			$.ajax("/api/cats", {
+			$.ajax("/api/burgers", {
 				type: "POST",
 				data: newBurger
 			}).then(

@@ -3,9 +3,13 @@ var orm = require("../config/orm.js");
 
 var burger = {
   all: function(cb) {
-    orm.all("burger", function(res) {
-      cb(res);
-    });
+
+    return new Promise ((resolve, reject)=> {
+      orm.all("burger", function(res) {
+        resolve(res);
+      });
+    })
+  
   },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
@@ -18,11 +22,7 @@ var burger = {
       cb(res);
     });
   },
-  delete: function(condition, cb) {
-    orm.delete("burger", condition, function(res) {
-      cb(res);
-    });
-  }
+
 };
 
 // Export the database functions for the controller (burgerController.js).

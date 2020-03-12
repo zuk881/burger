@@ -1,12 +1,16 @@
-body {
+  body {
   background-color: papayawhip;
   }
   
   li {
-    padding: 5px;
-    margin: 5px;
+    padding: 10px;
+    margin: 20px 10px 10px 10px;
     background: lightblue;
     justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: red;
+    font-weight: 700;
   }
   
   .label {
@@ -25,4 +29,31 @@ body {
   
   .container {
     justify-content: center;
+  }
+
+  .display-4 {
+    font-style: oblique;
+    font-weight: 900;
+    color: red;
+  }
+
+  h2 {
+    color: blue;
+    font-weight: 700;
+  }
+
+  button {
+    border-radius: 4px;
+    border: 2px solid blue;
+  }
+
+  .jumbotron {
+    margin-top: 7%;
+    border: 2px solid orangered; 
+  }
+
+  img {
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 2px solid black;
   }
