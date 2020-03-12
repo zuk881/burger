@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Burger Time!</title>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+
+<body>
+	{{{ body }}}
+</body>
+<script>
+	var newState = false;
+
+	// Make sure we wait to attach our handlers until the DOM is fully loaded.
+	$(function () {
+		$(".change-eaten").on("click", function (event) {
+			var id = $(this).data("id");
+
+			var newEatenState = { eaten: true };
+
+			// Send the PUT request.
+			$.ajax("/api/cats/" + id, {
+				type: "PUT",
+				data: newEatenState
+			}).then(
+				function () {
+					console.log("changed sleep to", newState);
+					// Reload the page to get the updated list
+					location.reload();
+				}
+			);
+		});
+
+		$(".create-form").on("submit", function (event) {
+			// Make sure to preventDefault on a submit event.
+			event.preventDefault();
+
+			var newBurger = {
+				name: $("#ca").val().trim(),
+
+			};
+
+			// Send the POST request.
+			$.ajax("/api/cats", {
+				type: "POST",
+				data: newBurger
+			}).then(
+				function () {
+					console.log("created new burger");
+					// Reload the page to get the updated list
+					location.reload();
+				}
+			);
+		});
+
+	});
+
+</script>
+
+</html>

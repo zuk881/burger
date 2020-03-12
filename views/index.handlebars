@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h1 id="title">Burger Time</h1>
+
+  <h2>Burgers Available!</h2>
+  {{#each menu}}
+  {{#unless eaten}}
+  <li>{{this.name}}</li>
+  <button class="change-eaten" data-id="{{id}}" data-newsleep="{{eaten}}">
+    Eat Me!
+  </button>
+  {{/unless}}
+  {{/each}}
+  <hr>
+
+  <h2>Burgers Eaten!</h2>
+  {{#each menu}}
+  {{#if eaten}}
+  <li>{{this.name}}</li>
+  {{/if}}
+  {{/each}}
+
+  <hr>
+  <h2>Add a Burger</h2>
+  <form class="create-form">
+
+    <div class="form-group">
+      <label for="ca">Burger Name:</label>
+      <input type="text" id="ca" name="name">
+    </div>
+
+    <button type="submit">Add Burger</button>
+  </form>
+</div>
+
